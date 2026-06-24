@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/data/siteConfig';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles', ({ data }) => !data.draft);
+const sorted = articles
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 21);
+
+const c = siteConfig.colors;
+const h = siteConfig.hero;
+
+const pageCSS = `.hero{position:relative;background:linear-gradient(180deg,${c.heroGradientTop} 0%,${c.bg} 100%);padding:60px 20px 80px}.hero-inner{max-width:1100px;margin:0 auto;text-align:center}.logo-zone{display:flex;justify-content:center;align-items:center;margin-bottom:8px}.logo-zone h1{font-size:36px;font-weight:800;color:${c.textPrimary};line-height:1.3}.logo-sub{font-size:16px;color:${c.textSecondary};margin-bottom:48px}.dl-group{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:72px}.dl-item{text-align:center}.dl-item img{display:block;margin:0 auto 12px;height:200px;width:auto;transition:transform .3s}.dl-item:hover img{transform:translateY(-4px)}.dl-btn{display:inline-block;background:${c.primary};color:#fff;border:none;border-radius:24px;padding:14px 36px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s,transform .2s}.dl-btn:hover{background:${c.primaryHover};color:#fff;transform:translateY(-1px)}.features{max-width:1100px;margin:0 auto 60px}.features h2{text-align:center;font-size:22px;font-weight:700;margin-bottom:36px;color:${c.textPrimary}}.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.feat-card{text-align:center;padding:16px}.feat-card .feat-icon{width:100px;height:100px;margin:0 auto 12px}.feat-card .feat-icon img{width:100%;height:100%;object-fit:contain}.feat-card .feat-title{color:${c.featTitle || '#8b7355'};font-size:17px;font-weight:600;margin-bottom:6px}.feat-card .feat-desc{font-size:13px;color:${c.textMuted}}.articles{max-width:1100px;margin:0 auto;padding:0 24px 60px}.articles h2{text-align:center;font-size:22px;font-weight:700;margin-bottom:36px;color:${c.textPrimary}}.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.art-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid ${c.border};transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:block}.art-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.08)}.art-card-body{padding:20px}.art-card .art-tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:6px;margin-bottom:10px}.art-tag.install,.art-tag.guide{background:#e0f2fe;color:#0369a1}.art-tag.fix{background:#fef3c7;color:#92400e}.art-tag.permission{background:#f3e8ff;color:#7c3aed}.art-card h3{font-size:15px;font-weight:700;line-height:1.4;margin-bottom:8px;color:${c.textPrimary};display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.art-card p{font-size:13px;color:${c.textMuted};line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}@media(max-width:768px){.hero{padding:40px 20px 50px}.logo-zone h1{font-size:24px}.dl-group{flex-direction:column;align-items:center;gap:20px}.dl-item img{height:140px}.feat-grid,.art-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.feat-grid,.art-grid{grid-template-columns:1fr}}`;
+---
+
+<BaseLayout>
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="logo-zone"><h1>{h.h1}</h1></div>
+      <p class="logo-sub">{h.subtitle}</p>
+      <div class="dl-group">
+        {h.buttons.map(btn => (
+          <div class="dl-item">
+            <img src={`/images/${btn.icon}`} alt={btn.text} loading="lazy" />
+            <a
+              href={btn.href}
+              class="dl-btn"
+              target={btn.external ? '_blank' : undefined}
+              rel={btn.external ? 'nofollow' : undefined}
+            >{btn.text}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="features">
+    <h2>为什么选择本站</h2>
+    <div class="feat-grid">
+      {siteConfig.features.map(f => (
+        <div class="feat-card">
+          <div class="feat-icon"><img src={`/images/${f.icon}`} alt={f.title} loading="lazy" /></div>
+          <div class="feat-title">{f.title}</div>
+          <div class="feat-desc">{f.desc}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Latest Articles ── -->
+  <section class="articles">
+    <h2>最新教程</h2>
+    <div class="art-grid">
+      {sorted.map(article => {
+        const cat = article.data.category || 'guide';
+        return (
+          <a href={`/${article.id}/`} class="art-card">
+            <div class="art-card-body">
+              <span class={`art-tag ${cat}`}>{siteConfig.catLabels?.[cat] || article.data.category}</span>
+              <h3>{article.data.title}</h3>
+              <p>{article.data.description}</p>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Inject page CSS -->
+  <style set:html={pageCSS} />
+</BaseLayout>

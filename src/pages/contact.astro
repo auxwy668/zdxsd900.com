@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/data/siteConfig';
+---
+
+<BaseLayout title={`联系我们 — ${siteConfig.name}`}>
+  <div class="static-page">
+    <h1>联系我们</h1>
+    <div class="content">
+      <p>有任何问题、建议或合作意向，欢迎通过以下方式联系我们：</p>
+      <ul>
+        <li>📧 邮箱：<a href="mailto:{siteConfig.email}">{siteConfig.email}</a></li>
+      </ul>
+      <p>我们会在 1-2 个工作日内回复。</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .static-page { max-width: 780px; margin: 40px auto; padding: 0 24px; }
+  .static-page h1 { font-family: var(--f-heading); font-size: 1.8rem; margin-bottom: 24px; text-align: center; }
+  .content p { color: var(--c-text-2); margin: 12px 0; }
+  .content ul { padding-left: 20px; color: var(--c-text-2); }
+  .content li { margin: 8px 0; }
+</style>
