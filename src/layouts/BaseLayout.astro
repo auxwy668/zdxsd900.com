@@ -101,7 +101,7 @@ const globalCSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0
   <!-- Nav -->
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">{siteConfig.name}</a>
+      <a href="/" class="nav-logo">{siteConfig.logo.text}</a>
       <div class="nav-links">
         <a href="/">首页</a>
         <a href="/articles/">所有教程</a>
@@ -130,7 +130,7 @@ const globalCSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo">{siteConfig.name}</div>
+        <div class="footer-logo">{siteConfig.logo.text}</div>
         <p class="footer-desc">{siteConfig.footer.notice}</p>
         <span class="footer-badge">📚 独立教程网站</span>
       </div>
@@ -159,7 +159,7 @@ const globalCSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} {siteConfig.logo.text}. All rights reserved.</p>
     </div>
   </footer>
 
