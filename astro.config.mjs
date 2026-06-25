@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // ⚠️ PER-SITE: change `site` to the actual domain
 export default defineConfig({
-  site: 'https://YOUR-DOMAIN.com',
+  site: 'https://zdxsd900.com',
   trailingSlash: 'never',
   integrations: [
     sitemap({
