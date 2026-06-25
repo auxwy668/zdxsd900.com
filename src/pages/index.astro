@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const articles = await getCollection('articles', ({ data }) => !data.draft);
 const sorted = articles
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 21);
+  .slice(0, 6);
 
 const c = siteConfig.colors;
 
@@ -161,6 +161,9 @@ ${tagCSS}
             </a>
           );
         })}
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <a href="/articles/" style="display:inline-block;padding:12px 36px;background:{c.primary};color:#fff;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:background .2s">查看全部教程 →</a>
       </div>
     </section>
 
