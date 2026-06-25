@@ -1,6 +1,6 @@
 ---
 title: "Telegram在线状态怎么隐藏？Last Seen权限控制详解"
-description: "Telegram Last Seen和Online状态设置完整指南。深入解析四种权限级别的区别、互惠规则的工作原理、例外用户的添加方法，以及不同使用场景下的最佳配置策略。学会精准控制谁可以看到你的在线状态，同时不影响自己的正常使用体验，涵盖群组在线穿透、Premium用户权限影响、Always和Never Share例外配置等进阶细节。"
+description: "Telegram在线状态与Last Seen权限管理完全指南，逐一拆解四种隐私级别的具体差异与适用场景，深入讲解互惠规则背后的管理逻辑，教你灵活配置谁可以看到你的在线时间，平衡隐私保护与日常使用体验。"
 keywords: "Telegram,隐私安全,在线状态,Last Seen,Online状态,隐身设置,Telegram上线时间隐藏"
 date: 2026-06-25
 lastmod: 2026-06-25

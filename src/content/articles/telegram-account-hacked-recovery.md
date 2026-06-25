@@ -219,7 +219,7 @@ Settings → Privacy and Security → Two-Step Verification → Change Password
 - 尝试在其他平台用相似的手法攻击
 - 利用你在Telegram聊天记录中暴露的信息
 
-参考我们的 [防钓鱼和社工攻击指南](/telegram-anti-phishing/) 了解更多防御技巧。
+参考我们的 [防钓鱼和社工攻击指南](/telegram-anti-phishing-scam/) 了解更多防御技巧。
 
 ## 常见问题
 
