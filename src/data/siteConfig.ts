@@ -60,6 +60,13 @@ export const siteConfig = {
     guide: '使用指南',
   } as Record<string, string>,
 
+  catTagPalette: [
+    { bg: '#e0f2fe', color: '#0891b2' },
+    { bg: '#ecfdf5', color: '#065f46' },
+    { bg: '#fef3c7', color: '#92400e' },
+    { bg: '#f3e8ff', color: '#7c3aed' },
+  ],
+
   colors: {
     primary: '#0891B2',
     primaryHover: '#0E7490',
