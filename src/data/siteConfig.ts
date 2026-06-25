@@ -4,7 +4,7 @@
 export const siteConfig = {
   name: 'zdxsd900',
   title: 'Telegram 隐私安全设置教程：隐身防追踪完整指南',
-  description: 'Telegram 隐私安全完整教程，涵盖手机号隐藏、在线状态隐身、两步验证、端到端加密、群组邀请控制等核心安全配置。2026 最新版。',
+  description: 'Telegram 隐私安全设置完全指南，手把手教你隐藏手机号、隐身在线状态、开启两步验证、启用端到端加密、控制群组邀请权限、管理活跃设备会话、设置阅后即焚消息等核心安全功能。2026 最新中文教程，保护你的 TG 账号不被追踪、不被盗号、不被骚扰。',
   keywords: 'Telegram,隐私安全,隐身设置,防追踪,两步验证,加密聊天,账号保护',
   url: 'https://zdxsd900.com',
   language: 'zh-CN',
