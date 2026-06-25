@@ -181,5 +181,10 @@ const globalCSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0
   <!-- Inject global CSS (plain <style> avoids Astro's CSS processing) -->
   <style set:html={globalCSS} />
 
+  <!-- FAQ accordion JS -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var item=q.parentElement;var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0'});if(!open){item.classList.add('open');item.querySelector('.faq-a').style.maxHeight='500px'}})})});
+  </script>
+
 </body>
 </html>
