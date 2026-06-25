@@ -4,7 +4,7 @@
 export const siteConfig = {
   name: 'zdxsd900',
   title: 'Telegram 隐私安全设置教程：隐身防追踪完整指南',
-  description: 'Telegram 隐私安全完整教程，涵盖手机号隐藏、在线状态隐身、两步验证、端到端加密、群组邀请控制等核心安全配置。2026 最新版，保护你的 TG 账号安全。',
+  description: 'Telegram 隐私安全完整教程，涵盖手机号隐藏、在线状态隐身、两步验证、端到端加密、群组邀请控制等核心安全配置。2026 最新版。',
   keywords: 'Telegram,隐私安全,隐身设置,防追踪,两步验证,加密聊天,账号保护',
   url: 'https://zdxsd900.com',
   language: 'zh-CN',
@@ -29,9 +29,9 @@ export const siteConfig = {
   },
 
   downloadButtons: [
-    { img: 'window_img.png', btnSvg: 'down.svg',    onClick: "window.open('https://telegram.org/')" },
+    { img: 'window_img.png', btnSvg: 'down.svg', onClick: "window.open('https://telegram.org/')" },
     { img: 'android_img.png', btnSvg: 'down-android.svg', onClick: "window.open('https://telegram.org/')" },
-    { img: 'iphone_img.png',  btnSvg: 'down-iphone.svg',  onClick: "window.open('https://telegram.org/')" },
+    { img: 'iphone_img.png', btnSvg: 'down-iphone.svg', onClick: "window.open('https://telegram.org/')" },
   ],
 
   features: [
@@ -45,6 +45,20 @@ export const siteConfig = {
     { gif: 'img8.gif', title: '安全', desc: '保护您的消息不受黑客攻击' },
     { gif: 'img9.gif', title: '自主', desc: '完全掌控你的数据与隐私设置' },
   ],
+
+  categories: [
+    { id: 'privacy',  name: '隐私设置' },
+    { id: 'security', name: '账号安全' },
+    { id: 'encrypt',  name: '加密保护' },
+    { id: 'guide',    name: '使用指南' },
+  ],
+
+  catLabels: {
+    privacy: '隐私设置',
+    security: '账号安全',
+    encrypt: '加密保护',
+    guide: '使用指南',
+  } as Record<string, string>,
 
   colors: {
     primary: '#0891B2',
@@ -63,24 +77,9 @@ export const siteConfig = {
     body: "'Noto Sans SC', 'Inter', system-ui, sans-serif",
   },
 
-  navLinks: [
-    { label: '首页', href: '/' },
-    { label: '所有教程', href: '/articles/' },
-    { label: '关于', href: '/about/' },
-  ],
-
-  categories: [] as { id: string; name: string; icon: string }[],
-
   footer: {
     notice: '本站为独立安全教程站点，非 Telegram 官方。所有内容基于公开信息整理。',
   },
-
-  catLabels: {
-    privacy: '隐私设置',
-    security: '账号安全',
-    encrypt: '加密保护',
-    guide: '使用指南',
-  } as Record<string, string>,
 
   structuredData: {
     organization: 'zdxsd900',

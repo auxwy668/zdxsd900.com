@@ -103,8 +103,10 @@ const globalCSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0
     <div class="nav-inner">
       <a href="/" class="nav-logo">{siteConfig.name}</a>
       <div class="nav-links">
-        {siteConfig.navLinks.map(l => (
-          <a href={l.href} class={Astro.url.pathname === l.href ? 'active' : ''}>{l.label}</a>
+        <a href="/">首页</a>
+        <a href="/articles/">所有教程</a>
+        {siteConfig.categories.map(cat => (
+          <a href={`/articles/?category=${cat.id}`}>{cat.name}</a>
         ))}
       </div>
     </div>
@@ -143,8 +145,8 @@ const globalCSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0
       <div class="footer-col">
         <h4>教程分类</h4>
         <ul>
-          {siteConfig.navLinks.filter(l => l.href !== '/').slice(0, 4).map(l => (
-            <li><a href={l.href}>{l.label}</a></li>
+          {siteConfig.categories.map(cat => (
+            <li><a href={`/articles/?category=${cat.id}`}>{cat.name}</a></li>
           ))}
         </ul>
       </div>

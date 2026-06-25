@@ -66,12 +66,12 @@ const related = articles
           ))}
         </div>
       )}
-      {siteConfig.navLinks.filter(l => l.href !== '/').length > 0 && (
+      {siteConfig.categories.length > 0 && (
         <div class="sb-card">
           <h4>热门标签</h4>
           <div class="trend-tags">
-            {siteConfig.navLinks.filter(l => l.href !== '/').map(l => (
-              <a href={l.href}>{l.label}</a>
+            {siteConfig.categories.map(c => (
+              <a href={`/articles/?category=${c.id}`}>{c.name}</a>
             ))}
           </div>
         </div>
